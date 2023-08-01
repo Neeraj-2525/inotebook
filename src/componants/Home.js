@@ -1,32 +1,32 @@
 
+import AddNote from './AddNote';
+import LandingPage from './LandingPage';
+import LeftNavbar from './LeftNavbar';
+import NoteItem from './NoteItem';
 import Notes from './Notes';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  useLocation
+} from "react-router-dom";
 
 
 const Home = () => {
+  const location = useLocation();
   
   return (
     <div>
-      <div className='container my-1'>
-        <h2 className='mt-5'>Add a Note</h2>
-        <form className='my-3'>
-          <div className="mb-3">
-            <label for="exampleInputEmail1" className="form-label">Email address</label>
-            <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-            <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
-          </div>
-          <div className="mb-3">
-            <label for="exampleInputPassword1" className="form-label">Password</label>
-            <input type="password" className="form-control" id="exampleInputPassword1" />
-          </div>
-          <div className="mb-3 form-check">
-            <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-            <label className="form-check-label" for="exampleCheck1">Check me out</label>
-          </div>
-          <button type="submit" className="btn btn-primary">Submit</button>
-        </form>
+      <LeftNavbar/>
+      <div className="m-l-r-t-b">
+      {location.pathname==='/home'&&<AddNote/>}
       </div>
-
-      <Notes/>
+        {/* <Routes>
+          <Route exact path='/home/allNotes' element={<Notes/>}>
+          </Route>
+          <Route exact path='/home/trash' element={<LandingPage/>}>
+          </Route>
+        </Routes> */} 
     </div>
   )
 }

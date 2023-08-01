@@ -5,9 +5,300 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #1f1f1f;
+  color: #e3e3e3;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: #ffffff1c;
+  backdrop-filter: blur(2px);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.452);
+}
+
+::-webkit-resizer {
+  display: none;
+}
+
+
+i {
+  cursor: pointer;
+}
+
+.card {
+  background-color: #e3e3e3;
+}
+
+/* ****** note writing area ****** */
+
+.addNoteForm {
+  background-image: url(../public/noteBg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: 45%;
+  border-radius: 20px;
+}
+
+.addNoteForm textarea {
+  background-color: #ffffff1c;
+  border: none;
+  transition: all 0.5s ease;
+  color: #e3e3e3;
+  font-size: 18px;
+}
+
+.addNoteForm textarea:focus {
+  background-color: rgba(212, 212, 212, 0.212);
+  color: #e3e3e3;
+  box-shadow: 0 0 0 0.25rem #51488160;
+  backdrop-filter: blur(2px);
+}
+
+.addNoteForm h1 {
+  font-size: 4rem;
+}
+
+/* ********** add submit btn in add note ********* */
+.addSubmitBtn {
+  background-color: #fff;
+}
+
+.addNoteForm .btn-primary {
+  /* background-color: red; */
+}
+
+/* ******** SIDE NAV *********** */
+
+ul.form {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #282828;
+  width: 90px;
+  height: 100vh;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+  z-index: 999;
+
+  -webkit-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.form li a {
+  /* width:225px; */
+  /* height:50px; */
+  line-height: 20px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #c4c7c5;
+  margin: 30px 0;
+
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+/* .form li a:hover {
+  background:#efefef;
+}
+
+.form li a.profile {
+  border-left:5px solid #008747;
+}
+
+.form li a.messages {
+      border-left:5px solid #fecf54;
+}
+  
+.form li a.settings {
+      border-left:5px solid #cf2130;
+}
+
+.form li a.logout {
+      border-left:5px solid #dde2d5;
+}	 */
+
+.form li:first-child a:hover,
+.form li:first-child a {
+  -webkit-border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
+}
+
+.form li:last-child a:hover,
+.form li:last-child a {
+  -webkit-border-radius: 0 0 5px 5px;
+  -moz-border-radius: 0 0 5px 5px;
+  border-radius: 0 0 5px 5px;
+}
+
+.form li a:hover i {
+  color: #fff;
+  transform: scale(1.06);
+}
+
+.form li a:hover {
+  color: #fff;
+}
+
+.form li.activeFormEle a {
+  color: #fff;
+  transform: scale(1.06);
+  background: #383838;
+  /* border-radius: 20px; */
+  /* padding: 0px 0px !important; */
+}
+
+.form i {
+  padding: 5px;
+  /* margin-right:15px; */
+  font-size: 20px;
+  margin-bottom: 10px;
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+.form em {
+  font-size: 10px;
+  background: #ea4f35;
+  padding: 3px 5px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  font-style: normal;
+  color: #fff;
+  margin-top: 17px;
+  margin-right: 15px;
+  line-height: 10px;
+  height: 10px;
+  float: right;
+}
+
+/* ********* TOP NAVBAR ******** */
+.navbar-brand {
+  font-size: 30px;
+  font-weight: 400;
+  margin-right: 80px;
+}
+
+.nav-link {
+  font-size: 18px;
+}
+
+.navbar .btn {
+  font-size: 16px;
+}
+
+
+.m-l-r-t-b {
+  margin-top: 8px;
+  margin-right: -4px;
+  margin-left: 85px;
+}
+
+/* ******* landing page ******* */
+.landingPageHero {
+  background-image: url(../public/noteBg2.png);
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.landingPageHero .landingHeroText {
+  text-align: center;
+  color: #e3e3e3;
+}
+
+.landingPageHero .landingHeroText h1 {
+  font-size: 5vw;
+}
+
+
+.landingPageHero .landingHeroText p {
+  font-size: 22px;
+  padding: 20px 80px;
+}
+
+/* ***** about section ******** */
+.landingPageWrapper .aboutSectionWrapper {
+  background-image: url(../public/noteBg8.jpg);
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  margin-top: 10px;
+}
+
+.landingPageWrapper .aboutSectionWrapper .aboutSection {
+  text-align: center;
+  color: #e3e3e3;
+}
+
+#about h1 {
+  font-size: 4vw;
+
+}
+
+#about .card {
+  background-color: #ffffff1e;
+  backdrop-filter: blur(10px);
+  color: #e3e3e3;
+  height: 150px;
+  border: none;
+  border-radius: 10px;
+}
+
+.landingPageWrapper .testimonialsWrapper {
+  background-image: url(../public/noteBg10.jpg);
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.testimonialsWrapper .testimonials h1{
+  font-size: 4vw;
+}
+
+.testimonialsWrapper .testimonials .card{
+  /* height: 150px; */
+  text-align: left !important;
+  background-color: #ffffff10;
+  color: #e3e3e3;
+  backdrop-filter: blur(10px);
+  border: none;
+  border-radius: 30px;
 }
