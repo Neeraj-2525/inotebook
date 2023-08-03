@@ -15,12 +15,12 @@ import SignUp from './componants/SignUp';
 import LandingPage from './componants/LandingPage';
 import LeftNavbar from './componants/LeftNavbar';
 import Notes from './componants/Notes';
+import { useState } from 'react';
 
 function App() {
   return (
     <NoteState>
       <Router>
-        
         <AppContent />
       </Router>
     </NoteState>
@@ -30,6 +30,18 @@ function App() {
 function AppContent() {
   const location = useLocation();
 
+  const [alert, setAlert] = useState(null);
+  const showAlert = (message, type) => {
+    setAlert({
+      msg: message,
+      type: type
+    })
+  }
+
+  setTimeout(() => {
+    setAlert(null);
+  }, 2000);
+
   // Check if the current path starts with "/home/"
   const isHomePath = location.pathname.startsWith("/home");
 
@@ -37,17 +49,17 @@ function AppContent() {
     <>
       {!isHomePath && <Navbar />}
       {isHomePath && <LeftNavbar />}
-      {/* <Alert alertType={"primary"} message={"Successful"} /> */}
+      <Alert alert={alert} />
 
       <div className="container-fluid">
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/home/*" element={<Home />} />
-          <Route path="/home/allnotes" element={<Notes />} />
+          <Route path="/home/*" element={<Home showAlert={showAlert} />} />
+          <Route path="/home/allnotes" element={<Notes showAlert={showAlert} />} />
           <Route path="/home/trash" element={<LandingPage />} />
           <Route path="/about" element={<About />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<Login showAlert={showAlert} />} />
+          <Route path="/signup" element={<SignUp showAlert={showAlert} />} />
         </Routes>
       </div>
     </>

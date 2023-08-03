@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800&display=swap');
+
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Montserrat', sans-serif;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #1f1f1f;
@@ -50,15 +52,16 @@ i {
 .addNoteForm textarea {
   background-color: #ffffff1c;
   border: none;
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
   color: #e3e3e3;
   font-size: 18px;
+  width: 60%;
 }
 
 .addNoteForm textarea:focus {
   background-color: rgba(212, 212, 212, 0.212);
   color: #e3e3e3;
-  box-shadow: 0 0 0 0.25rem #51488160;
+  box-shadow: none;
   backdrop-filter: blur(2px);
 }
 
@@ -68,7 +71,13 @@ i {
 
 /* ********** add submit btn in add note ********* */
 .addSubmitBtn {
-  background-color: #fff;
+  background-color: #83ff738a;
+  backdrop-filter: blur(3px);
+  box-shadow: 0px 2px 5px #282235;
+}
+
+.addSubmitBtn:hover {
+  background-color: #83ff73d5;
 }
 
 .addNoteForm .btn-primary {
@@ -81,7 +90,7 @@ ul.form {
   position: fixed;
   top: 0;
   left: 0;
-  background: #282828;
+  background: #292925;
   width: 90px;
   height: 100vh;
   padding: 0;
@@ -115,26 +124,6 @@ ul.form {
   transition: all 0.2s linear;
 }
 
-/* .form li a:hover {
-  background:#efefef;
-}
-
-.form li a.profile {
-  border-left:5px solid #008747;
-}
-
-.form li a.messages {
-      border-left:5px solid #fecf54;
-}
-  
-.form li a.settings {
-      border-left:5px solid #cf2130;
-}
-
-.form li a.logout {
-      border-left:5px solid #dde2d5;
-}	 */
-
 .form li:first-child a:hover,
 .form li:first-child a {
   -webkit-border-radius: 5px 5px 0 0;
@@ -162,8 +151,6 @@ ul.form {
   color: #fff;
   transform: scale(1.06);
   background: #383838;
-  /* border-radius: 20px; */
-  /* padding: 0px 0px !important; */
 }
 
 .form i {
@@ -236,12 +223,27 @@ ul.form {
 
 .landingPageHero .landingHeroText h1 {
   font-size: 5vw;
+  font-weight: 600;
 }
 
 
 .landingPageHero .landingHeroText p {
   font-size: 22px;
   padding: 20px 80px;
+}
+
+.landingPageWrapper .exploreBtn {
+  background-color: #e3e3e331;
+  color: #383838;
+  font-weight: 400;
+  padding: 10px 30px;
+  border: 1px solid #fff;
+  backdrop-filter: blur(2px);
+}
+
+.landingPageWrapper .exploreBtn:hover {
+  background-color: #e3e3e379;
+  border: 1px solid transparent;
 }
 
 /* ***** about section ******** */
@@ -289,11 +291,11 @@ ul.form {
   text-align: center;
 }
 
-.testimonialsWrapper .testimonials h1{
+.testimonialsWrapper .testimonials h1 {
   font-size: 4vw;
 }
 
-.testimonialsWrapper .testimonials .card{
+.testimonialsWrapper .testimonials .card {
   /* height: 150px; */
   text-align: left !important;
   background-color: #ffffff10;
@@ -301,4 +303,237 @@ ul.form {
   backdrop-filter: blur(10px);
   border: none;
   border-radius: 30px;
+}
+
+.footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer a {
+  text-decoration: none;
+}
+
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footerContent .footerLeft {
+  max-width: 500px;
+}
+
+.footerContent .footerLeft {
+  font-size: 17px;
+}
+
+.footerContent .footerRight {
+  display: flex;
+  gap: 100px;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 40px;
+  padding-right: 50px;
+}
+
+.footerRight ul li a {
+  color: #a8c7fa;
+}
+
+.footer .footLine ul {
+  display: flex;
+  gap: 20px;
+  padding: 50px 0;
+}
+
+.footer .footLine ul a {
+  font-size: 17px;
+  font-weight: 500;
+  color: #e3e3e3;
+}
+
+/* ********** all Notes ************ */
+
+/* .allNoteContainer{
+  background-image: url(../public/noteBg8.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none;
+  border-radius: 10px;
+  margin-top: 10px !important;
+} */
+
+.allNoteContainer .yourNotesHeading {
+  background-image: url(../public/noteBg8.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none;
+  border-radius: 10px;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+}
+
+.allNoteContainer .yourNotesHeading h2 {
+  font-size: 100px;
+  font-weight: 600;
+}
+
+
+.allNoteCard {
+  /* background-color: #2c2c2c6e; */
+  /* background-image: linear-gradient(to top left, #160092b6, #81569bd7); */
+  background-image: linear-gradient(to right bottom, #2b204b, #04264cd0),
+    url(https://grainy-gradients.vercel.app/noise.svg);
+  color: #e3e3e3;
+  backdrop-filter: blur(3px);
+  padding: 5px;
+  border: 1px solid #e3e3e3;
+  max-width: 400px !important;
+  height: 300px;
+  overflow: auto;
+}
+
+
+
+/* ********* login form ******* */
+.login-form-container {
+  background-image: url(../public/noteBg3.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none;
+  border-radius: 10px;
+  height: 87vh;
+  display: flex;
+  align-items: center;
+  /* margin: 0 50px; */
+}
+
+.login-form-container input {
+  background-color: #ffffff1c;
+  border: 1px solid #fff;
+  transition: all 0.5s ease;
+  color: #e3e3e3;
+  font-size: 18px;
+  backdrop-filter: blur(2px);
+}
+
+.login-form-container input:focus {
+  background-color: rgba(212, 212, 212, 0.212);
+  color: #e3e3e3;
+  backdrop-filter: blur(2px);
+}
+
+.transparentBtn {
+  background-color: #c5c5c5d2;
+  border: 1px solid #FFF;
+  backdrop-filter: blur(5px);
+}
+
+.transparentBtn:hover,
+.transparentBtn:focus {
+  border: 1px solid #FFF;
+  background-color: #66666644;
+}
+
+/* ********* sign up form ******** */
+.signUp-form-container {
+  background-image: url(../public/noteBg4.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none;
+  border-radius: 10px;
+  height: 87vh;
+  display: flex;
+  align-items: center;
+}
+
+.signUp-form-container label {
+  color: #4f596b;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.signUp-form-container input {
+  background-color: #abcae96c;
+  border: 1px solid #fff;
+  transition: all 0.5s ease;
+  color: #e3e3e3;
+  font-size: 18px;
+  backdrop-filter: blur(2px);
+}
+
+.signUp-form-container input:focus {
+  background-color: #7fb5eb88;
+  color: #e3e3e3;
+  backdrop-filter: blur(2px);
+}
+
+.signUp-form-container button {
+  background-color: #d4436eb2;
+  color: #e3e3e3;
+}
+
+.signUp-form-container button:hover,
+.signUp-form-container button:focus {
+  background-color: #7cb3399d;
+  color: #383838;
+}
+
+/* ********* alert ******* */
+
+.alertContainer {
+  border-radius: 20px;
+  position: absolute;
+  width: 50vw;
+  left: 25%;
+  z-index: 999;
+}
+
+.signUpLoginFormHeading {
+  font-size: 4rem;
+  font-weight: 700;
+
+}
+
+.loginHead {
+  background: -webkit-linear-gradient(#fff, #ffc9777e), url(https://grainy-gradients.vercel.app/noise.svg);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.signUpHead {
+  background: -webkit-linear-gradient(#fc6c5c, #88cf24);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* color: transparent; */
+}
+
+/* ********** edit note window / modal ************ */
+
+.modal{
+  backdrop-filter: blur(2px);
+  transition: all 0.3s ease-in-out;
+}
+
+.modal-content{
+  /* background-color: #383838; */
+  background-image: linear-gradient(to bottom right, #5d006963,  #0a1361dc),
+    url(https://grainy-gradients.vercel.app/noise.svg);
+}
+
+.modal-body form input{
+  background-color: #ffffff63;
+}
+
+.modal-body form input:focus, .modal-body form input:hover{
+  background-color: #ffdbdb75;
+  backdrop-filter: blur(3px);
+  box-shadow: none;
+  color: #e3e3e3;
 }

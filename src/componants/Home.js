@@ -1,32 +1,17 @@
-
 import AddNote from './AddNote';
-import LandingPage from './LandingPage';
 import LeftNavbar from './LeftNavbar';
-import NoteItem from './NoteItem';
-import Notes from './Notes';
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  useLocation
-} from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 
-const Home = () => {
+const Home = (props) => {
   const location = useLocation();
-  
+
   return (
     <div>
-      <LeftNavbar/>
+      <LeftNavbar showAlert={props.showAlert} />
       <div className="m-l-r-t-b">
-      {location.pathname==='/home'&&<AddNote/>}
+        {location.pathname === '/home' && <AddNote showAlert={props.showAlert} />}
       </div>
-        {/* <Routes>
-          <Route exact path='/home/allNotes' element={<Notes/>}>
-          </Route>
-          <Route exact path='/home/trash' element={<LandingPage/>}>
-          </Route>
-        </Routes> */} 
     </div>
   )
 }

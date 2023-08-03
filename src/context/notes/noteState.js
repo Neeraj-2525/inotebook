@@ -13,7 +13,7 @@ const NoteState = (props) => {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjRiZjVlZjBlMmI4YTlhN2JkNDg4M2NkIn0sImlhdCI6MTY5MDM3MjM1N30.P5xikaFHv2vHUgiRea-5pNIuFxE3jNpsKmpol3eqwtY"
+        "auth-token": localStorage.getItem('token')
       }
     });
     const json = await response.json()
@@ -28,7 +28,7 @@ const NoteState = (props) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjRiZjVlZjBlMmI4YTlhN2JkNDg4M2NkIn0sImlhdCI6MTY5MDM3MjM1N30.P5xikaFHv2vHUgiRea-5pNIuFxE3jNpsKmpol3eqwtY"
+        "auth-token": localStorage.getItem('token')
       },
       body: JSON.stringify({title, description, tag})
     });
@@ -45,13 +45,15 @@ const NoteState = (props) => {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
-        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjRiZjVlZjBlMmI4YTlhN2JkNDg4M2NkIn0sImlhdCI6MTY5MDM3MjM1N30.P5xikaFHv2vHUgiRea-5pNIuFxE3jNpsKmpol3eqwtY"
+        "auth-token": localStorage.getItem('token')
       }
     });
     // const json = response.json();
+    console.log(response.json())
 
     const newNotes = notes.filter((note) => { return note._id !== id })
     setNotes(newNotes)
+    
   }
 
   // Edit a Note
@@ -61,11 +63,13 @@ const NoteState = (props) => {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjRiZjVlZjBlMmI4YTlhN2JkNDg4M2NkIn0sImlhdCI6MTY5MDM3MjM1N30.P5xikaFHv2vHUgiRea-5pNIuFxE3jNpsKmpol3eqwtY"
+        "auth-token": localStorage.getItem('token')
       },
       body: JSON.stringify({title, description, tag})
     });
     // const json = await response.json();
+    console.log(response.json())
+    
 
      let newNotes = JSON.parse(JSON.stringify(notes))
     // Logic to edit in client

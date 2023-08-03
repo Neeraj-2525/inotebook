@@ -2,15 +2,17 @@ import React, { useContext, useState } from 'react'
 import noteContext from '../context/notes/noteContext';
 
 
-const AddNote = () => {
+const AddNote = (props) => {
     const context = useContext(noteContext);
     const { addNote } = context;
     const [note, setNote] = useState({ title: "", description: "", tag: "" })
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
         addNote(note.title, note.description, note.tag)
         setNote({ title: "", description: "", tag: "" })
+        props.showAlert("Note added successfully", "success")
     }
 
     const onChange = (e) => {
@@ -19,11 +21,11 @@ const AddNote = () => {
 
     // ******* auto height of textbox *********
 
-    const txHeight = 90;
+    const txHeight = 70;
     const tx = document.getElementsByTagName("textarea");
 
     for (let i = 0; i < tx.length; i++) {
-        if (tx[i].value == '') {
+        if (tx[i].value === '') {
             tx[i].setAttribute("style", "height:" + txHeight + "px;overflow-y:hidden;");
         } else {
             tx[i].setAttribute("style", "height:" + (tx[i].scrollHeight) + "px;overflow-y:hidden;");
@@ -54,7 +56,7 @@ const AddNote = () => {
                         <textarea value={note.tag} type="text" onChange={onChange} name='tag' className="form-control" id="tag" />
                     </div>
 
-                    <button disabled={note.title.length < 2 || note.description.length < 3} type="submit" className="btn btn-light my-2 mt-5 addSubmitBtn" onClick={handleSubmit}>Add Note</button>
+                    <button disabled={note.title.length < 2 || note.description.length < 3} type="submit" className="btn btn-light my-2 mt-2 addSubmitBtn" onClick={handleSubmit}>Add Note</button>
                 </form>
             </div>
         </div>
