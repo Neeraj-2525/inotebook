@@ -523,17 +523,36 @@ ul.form {
 
 .modal-content{
   /* background-color: #383838; */
-  background-image: linear-gradient(to bottom right, #5d006963,  #0a1361dc),
+  background-image: linear-gradient(to bottom right, #240029d2,  #062a53dc),
     url(https://grainy-gradients.vercel.app/noise.svg);
 }
 
 .modal-body form input{
   background-color: #ffffff63;
+  transition: background-color 0.5s ease;
 }
 
-.modal-body form input:focus, .modal-body form input:hover{
-  background-color: #ffdbdb75;
+.modal-body form input:focus{
+  background-color: #a7a7a773;
   backdrop-filter: blur(3px);
   box-shadow: none;
+  color: #e3e3e3;
+}
+
+.updateNoteBtn{
+  background-color: #1f0538;
+  color: #e3e3e3;
+}
+
+.updateNoteBtn:hover{
+  background-color: #1f0538d3;
+}
+
+.updateNoteBtn:focus{
+  background-color: #1f0538b0;
+}
+
+.closeUpdateModalBtn{
+  background-color: #1f031a8a;
   color: #e3e3e3;
 }
