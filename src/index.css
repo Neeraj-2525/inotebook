@@ -233,7 +233,8 @@ ul.form {
 }
 
 .landingPageWrapper .exploreBtn {
-  background-color: #e3e3e331;
+  /* background-color: #e3e3e331; */
+  background-color: #e3e3e379;
   color: #383838;
   font-weight: 400;
   padding: 10px 30px;
@@ -242,7 +243,7 @@ ul.form {
 }
 
 .landingPageWrapper .exploreBtn:hover {
-  background-color: #e3e3e379;
+  background-color: #e3e3e331;
   border: 1px solid transparent;
 }
 
@@ -442,7 +443,7 @@ ul.form {
 
 /* ********* sign up form ******** */
 .signUp-form-container {
-  background-image: url(../public/noteBg4.png);
+  background-image: linear-gradient(to left, #0000006b, transparent), url(../public/noteBg4.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -454,7 +455,7 @@ ul.form {
 }
 
 .signUp-form-container label {
-  color: #4f596b;
+  color: #ffffff;
   font-weight: 500;
   font-size: 16px;
 }
@@ -508,6 +509,7 @@ ul.form {
 }
 
 .signUpHead {
+  font-weight: 800;
   background: -webkit-linear-gradient(#fc6c5c, #88cf24);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -516,43 +518,104 @@ ul.form {
 
 /* ********** edit note window / modal ************ */
 
-.modal{
+.modal {
   backdrop-filter: blur(2px);
   transition: all 0.3s ease-in-out;
 }
 
-.modal-content{
+.modal-content {
   /* background-color: #383838; */
-  background-image: linear-gradient(to bottom right, #240029d2,  #062a53dc),
+  background-image: linear-gradient(to bottom right, #240029d2, #062a53dc),
     url(https://grainy-gradients.vercel.app/noise.svg);
 }
 
-.modal-body form input{
+.modal-body form input {
   background-color: #ffffff63;
   transition: background-color 0.5s ease;
 }
 
-.modal-body form input:focus{
+.modal-body form input:focus {
   background-color: #a7a7a773;
   backdrop-filter: blur(3px);
   box-shadow: none;
   color: #e3e3e3;
 }
 
-.updateNoteBtn{
+.updateNoteBtn {
   background-color: #1f0538;
   color: #e3e3e3;
 }
 
-.updateNoteBtn:hover{
+.updateNoteBtn:hover {
   background-color: #1f0538d3;
 }
 
-.updateNoteBtn:focus{
+.updateNoteBtn:focus {
   background-color: #1f0538b0;
 }
 
-.closeUpdateModalBtn{
+.closeUpdateModalBtn {
   background-color: #1f031a8a;
   color: #e3e3e3;
+}
+
+
+/* *********** USER DETAILS AT THE UPPER RIGHT CORNER *************** */
+
+/* .user-details{
+  position: absolute;
+  right: 5%;
+  top: 2%;
+}
+
+.user-circle{
+  position: absolute;
+  right: 0%;
+  top: 0%;
+} */
+
+.user-details {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 999;
+  
+}
+
+.user-circle {
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background-color: #96969669;
+  box-shadow: 0px 5px 5px rgba(31, 31, 31, 0.329)f ;
+}
+
+/* ********** user profile ************* */
+
+.userProfileContainer{
+  background-image: url(../public/profileSecBg.jpg);
+  background-position: center;
+  background-size: cover;
+  border: none;
+  border-radius: 10px;
+  height: 87vh;
+  display: flex;
+  align-items: center;
+}
+
+.userProfileCard{
+  background-color: #aa2f2f00;
+  border: none;
+  /* backdrop-filter: blur(3px); */
+  font-weight: 400;
 }

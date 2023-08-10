@@ -1,5 +1,7 @@
 import React, { useContext } from 'react'
 import noteContext from '../context/notes/noteContext';
+// import Skeleton from 'react-loading-skeleton';
+// import 'react-loading-skeleton/dist/skeleton.css';
 
 const NoteItem = (props) => {
     const context = useContext(noteContext);

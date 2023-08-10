@@ -13,7 +13,7 @@ const LeftNavbar = () => {
       <ul className="form">
         <li className={`home ${location.pathname==="/home"? "activeFormEle": ""}`}>
           <Link to="/home">
-          <i class="fa-solid fa-plus"></i> <br /> Add Note
+          <i className="fa-solid fa-plus"></i> <br /> Add Note
           </Link>
         </li>
         <li className={`allNotes ${location.pathname==="/home/allnotes"? "activeFormEle": ""}`}>

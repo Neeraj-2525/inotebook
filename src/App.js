@@ -16,6 +16,8 @@ import LandingPage from './componants/LandingPage';
 import LeftNavbar from './componants/LeftNavbar';
 import Notes from './componants/Notes';
 import { useState } from 'react';
+import UserProfileIcon from './componants/UserProfileIcon';
+import Profile from './componants/Profile';
 
 function App() {
   return (
@@ -48,13 +50,15 @@ function AppContent() {
   return (
     <>
       {!isHomePath && <Navbar />}
-      {isHomePath && <LeftNavbar />}
+      {isHomePath && <LeftNavbar showAlert={showAlert}/>}
+      {isHomePath && <UserProfileIcon showAlert={showAlert}/>}
       <Alert alert={alert} />
 
       <div className="container-fluid">
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/home/*" element={<Home showAlert={showAlert} />} />
+          <Route path="/home/userprofile" element={<Profile showAlert={showAlert} />} />
           <Route path="/home/allnotes" element={<Notes showAlert={showAlert} />} />
           <Route path="/home/trash" element={<LandingPage />} />
           <Route path="/about" element={<About />} />

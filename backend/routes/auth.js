@@ -9,11 +9,13 @@ const fetchuser = require('../middleware/fetchUser')
 
 const JWT_SECRET = "ekuri53j";
 
-// Route 1: Create a User using: POST "/api/auth/createUser". NO login required
+// Route 1: Create a User using: POST "/api/auth/createUser". NO login required SIGN UP
 router.post('/createUser', [
     body('name', 'Enter a valid name').isLength({ min: 2 }),
+    body('gender', 'please select your gender'),
     body('email', 'Enter a valid email').isEmail(),
     body('password', 'Password must be atleast 8 characters').isLength({ min: 8 }),
+    body('occupation', 'What do you do?').isLength({ min: 2 }),
 ], async (req, res) => {
     let success = false
     // If there are errors return Bad req and the errors
@@ -37,8 +39,10 @@ router.post('/createUser', [
 
         user = await User.create({
             name: req.body.name,
+            gender: req.body.gender,
             password: secPass,
-            email: req.body.email
+            email: req.body.email,
+            occupation: req.body.occupation
         });
 
         const data = {
