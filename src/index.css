@@ -378,6 +378,14 @@ ul.form {
   align-items: center;
 }
 
+.trashBinHeading{
+  background-image: linear-gradient(to right, #00000075, transparent), url(../public/notesImg.png) !important;
+}
+
+.tagsHeading{
+  background-image: linear-gradient(to right, #0000008e, transparent), url(../public/noteBg7.png) !important;
+}
+
 .allNoteContainer .yourNotesHeading h2 {
   font-size: 100px;
   font-weight: 600;
@@ -387,15 +395,37 @@ ul.form {
 .allNoteCard {
   /* background-color: #2c2c2c6e; */
   /* background-image: linear-gradient(to top left, #160092b6, #81569bd7); */
-  background-image: linear-gradient(to right bottom, #2b204b, #04264cd0),
+  background-image: linear-gradient(to right bottom, #1a1a1a, #000000f8),
     url(https://grainy-gradients.vercel.app/noise.svg);
   color: #e3e3e3;
   backdrop-filter: blur(3px);
+  /* border: none !important; */
   padding: 5px;
-  border: 1px solid #e3e3e3;
+  border: 1px solid #00000000;
+  border-radius: 10px;
   max-width: 400px !important;
+  /* box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); */
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5),
+              -2px -2px 8px rgba(255, 255, 255, 0.1);
   height: 300px;
   overflow: auto;
+  transition: border 0.5s;
+}
+
+.allNoteCard::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgb(31, 31, 31) 17.8%, rgb(22, 22, 22) 100.2% );
+  filter: blur(15px);
+  z-index: -1;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.allNoteCard:hover{
+  border: 1px solid #fff;
 }
 
 
@@ -516,6 +546,12 @@ ul.form {
   /* color: transparent; */
 }
 
+/* ********** confirm window modal ************* */
+.confirmWindowModal{
+  border-radius: 20px;
+  padding: 20px;
+}
+
 /* ********** edit note window / modal ************ */
 
 .modal {
@@ -524,39 +560,43 @@ ul.form {
 }
 
 .modal-content {
-  /* background-color: #383838; */
-  background-image: linear-gradient(to bottom right, #240029d2, #062a53dc),
-    url(https://grainy-gradients.vercel.app/noise.svg);
+  background-color: #222;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.7),
+              -4px -4px 10px rgba(255, 255, 255, 0.1);
 }
 
-.modal-body form input {
+.modal-body form textarea {
   background-color: #ffffff63;
   transition: background-color 0.5s ease;
+  color: #e3e3e3;
 }
 
-.modal-body form input:focus {
+.modal-body form textarea:focus {
   background-color: #a7a7a773;
   backdrop-filter: blur(3px);
   box-shadow: none;
-  color: #e3e3e3;
+  color: #fff;
 }
 
 .updateNoteBtn {
-  background-color: #1f0538;
+  background-color: #00b427b2;
   color: #e3e3e3;
+  border: 1px solid #ffffff7a;
 }
 
 .updateNoteBtn:hover {
-  background-color: #1f0538d3;
+  background-color: #00b42785;
 }
 
-.updateNoteBtn:focus {
-  background-color: #1f0538b0;
-}
 
 .closeUpdateModalBtn {
-  background-color: #1f031a8a;
+  background-color: #af0000c4;
   color: #e3e3e3;
+  border: 1px solid #ffffff7a;
+}
+
+.closeUpdateModalBtn:hover{
+  background-color: #af00009d;
 }
 
 
@@ -618,4 +658,88 @@ ul.form {
   border: none;
   /* backdrop-filter: blur(3px); */
   font-weight: 400;
+}
+
+
+/* ********** tag styling *********** */
+.tag{
+  /* background-color: #0000006b; */
+  background: #828433;
+  color: #fff;
+  padding: 7px;
+  text-decoration: none;
+  border-radius: 5px;
+  /* border: 1px solid #fff; */
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  /* box-shadow: 2px 2px 5px #00000091, -2px 2px 5px #00000091; */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tag:hover{
+  background-color: #2727276b;
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+  border: 1px solid #fff !important;
+}
+
+.tag:focus{
+  transform: translateY(0px);
+  background-color: #f0f1f5c9;
+  color: #000;
+}
+
+.noteBtn{
+  color: #e3e3e3;
+  transition: all 0.5s;
+}
+
+.noteBtn:hover{
+  color: #fff;
+  transform: scale(1.15);
+}
+
+
+/* ********************* Infinity Loader *********************** */
+
+#outline {
+  stroke-dasharray: 2.42777px, 242.77666px;
+  stroke-dashoffset: 0;
+  -webkit-animation: anim 1.6s linear infinite;
+  animation: anim 1.6s linear infinite;
+}
+
+@-webkit-keyframes anim {
+  12.5% {
+    stroke-dasharray: 33.98873px, 242.77666px;
+    stroke-dashoffset: -26.70543px;
+  }
+
+  43.75% {
+    stroke-dasharray: 84.97183px, 242.77666px;
+    stroke-dashoffset: -84.97183px;
+  }
+
+  100% {
+    stroke-dasharray: 2.42777px, 242.77666px;
+    stroke-dashoffset: -240.34889px;
+  }
+}
+
+@keyframes anim {
+  12.5% {
+    stroke-dasharray: 33.98873px, 242.77666px;
+    stroke-dashoffset: -26.70543px;
+  }
+
+  43.75% {
+    stroke-dasharray: 84.97183px, 242.77666px;
+    stroke-dashoffset: -84.97183px;
+  }
+
+  100% {
+    stroke-dasharray: 2.42777px, 242.77666px;
+    stroke-dashoffset: -240.34889px;
+  }
 }

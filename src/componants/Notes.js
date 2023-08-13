@@ -2,17 +2,18 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import noteContext from "../context/notes/noteContext"
 import Noteitem from './NoteItem';
 import { useNavigate } from 'react-router-dom';
+import Loader from './Loader';
 
 const Notes = (props) => {
     const context = useContext(noteContext);
-    const { notes, getNotes, editNote } = context;
+    const { notes, getNotes, editNote, loading } = context;
     let navigate = useNavigate();
 
     useEffect(() => {
-        if(localStorage.getItem('token')){
-            getNotes()
+        if (localStorage.getItem('token')) {
+            getNotes();
         }
-        else{
+        else {
             navigate('/')
         }
         // eslint-disable-next-line
@@ -36,8 +37,28 @@ const Notes = (props) => {
         setNote({ ...note, [e.target.name]: e.target.value })
     }
 
+    // ******* auto height of textbox *********
+
+    const txHeight = 70;
+    const tx = document.getElementsByTagName("textarea");
+
+    for (let i = 0; i < tx.length; i++) {
+        if (tx[i].value === '') {
+            tx[i].setAttribute("style", "height:" + txHeight + "px;overflow-y:hidden;");
+        } else {
+            tx[i].setAttribute("style", "height:" + (tx[i].scrollHeight) + "px;overflow-y:hidden;");
+        }
+        tx[i].addEventListener("input", OnInput, false);
+    }
+
+    function OnInput(e) {
+        this.style.height = 0;
+        this.style.height = (this.scrollHeight) + "px";
+    }
+
     return (
         <>
+            {loading && <Loader />}
             {/* <AddNote /> */}
             <button ref={ref} type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Launch demo modal
@@ -53,15 +74,15 @@ const Notes = (props) => {
                             <form className="my-3">
                                 <div className="mb-3">
                                     <label htmlFor="title" className="form-label">Title</label>
-                                    <input minLength={3} required type="text" className="form-control" id="etitle" name="etitle" value={note.etitle} aria-describedby="emailHelp" onChange={onChange} />
+                                    <textarea minLength={3} required type="text" className="form-control" id="etitle" name="etitle" value={note.etitle} aria-describedby="emailHelp" onChange={onChange} />
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="description" className="form-label">Description</label>
-                                    <input minLength={5} required type="text" className="form-control" id="edescription" name="edescription" value={note.edescription} onChange={onChange} />
+                                    <textarea minLength={5} required type="text" className="form-control" id="edescription" name="edescription" value={note.edescription} onChange={onChange} />
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="tag" className="form-label">Tag</label>
-                                    <input type="text" className="form-control" id="etag" name="etag" value={note.etag} onChange={onChange} />
+                                    <textarea type="text" className="form-control" id="etag" name="etag" value={note.etag} onChange={onChange} />
                                 </div>
 
                             </form>
@@ -74,17 +95,19 @@ const Notes = (props) => {
                 </div>
             </div>
 
-            <div className="row allNoteContainer d-flex m-l-r-t-b">
-                <div className="yourNotesHeading">
-                <h2>Your Notes</h2>
+            {!loading && (
+                <div className="row allNoteContainer d-flex m-l-r-t-b">
+                    <div className="yourNotesHeading">
+                        <h2>Your Notes</h2>
+                    </div>
+                    <div className="container text-center mt-5 fs-5">
+                        {notes.length === 0 && 'No Notes To Display :('}
+                    </div>
+                    {notes.map((note) => {
+                        return <Noteitem key={note._id} updateNote={updateNote} showAlert={props.showAlert} note={note} section={'allNotes'} />
+                    })}
                 </div>
-                <div className="container text-center mt-5 fs-5">
-                    {notes.length === 0 && 'No Notes To Display :('}
-                </div>
-                {notes.map((note) => {
-                    return <Noteitem key={note._id} updateNote={updateNote} showAlert={props.showAlert}  note={note} />
-                })}
-            </div>
+            )}
         </>
     )
 }

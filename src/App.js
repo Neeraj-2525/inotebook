@@ -18,6 +18,9 @@ import Notes from './componants/Notes';
 import { useState } from 'react';
 import UserProfileIcon from './componants/UserProfileIcon';
 import Profile from './componants/Profile';
+import TrashBin from './componants/TrashBin';
+import Tags from './componants/Tags';
+import ConfirmWindow from './componants/ConfirmWindow';
 
 function App() {
   return (
@@ -47,6 +50,7 @@ function AppContent() {
   // Check if the current path starts with "/home/"
   const isHomePath = location.pathname.startsWith("/home");
 
+
   return (
     <>
       {!isHomePath && <Navbar />}
@@ -60,8 +64,10 @@ function AppContent() {
           <Route path="/home/*" element={<Home showAlert={showAlert} />} />
           <Route path="/home/userprofile" element={<Profile showAlert={showAlert} />} />
           <Route path="/home/allnotes" element={<Notes showAlert={showAlert} />} />
-          <Route path="/home/trash" element={<LandingPage />} />
+          <Route path="/home/tags" element={<Tags showAlert={showAlert}/>} />
+          <Route path="/home/trashbin" element={<TrashBin showAlert={showAlert}/>} />
           <Route path="/about" element={<About />} />
+          <Route path="/home/logout" element={<ConfirmWindow />}/>
           <Route path="/login" element={<Login showAlert={showAlert} />} />
           <Route path="/signup" element={<SignUp showAlert={showAlert} />} />
         </Routes>

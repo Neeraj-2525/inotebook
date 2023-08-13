@@ -5,7 +5,7 @@ import noteContext from '../context/notes/noteContext';
 const AddNote = (props) => {
     const context = useContext(noteContext);
     const { addNote } = context;
-    const [note, setNote] = useState({ title: "", description: "", tag: "" })
+    const [note, setNote] = useState({ title: "", description: "", tag: "General" })
 
 
     const handleSubmit = (e) => {
@@ -16,7 +16,8 @@ const AddNote = (props) => {
     }
 
     const onChange = (e) => {
-        setNote({ ...note, [e.target.name]: e.target.value })
+        const cleanedValue = e.target.name === 'tag' ? e.target.value.replace(/\s+/g, '') : e.target.value;
+        setNote({ ...note, [e.target.name]: cleanedValue })
     }
 
     // ******* auto height of textbox *********

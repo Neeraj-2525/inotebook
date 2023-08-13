@@ -22,5 +22,10 @@ const NotesSchema = new Schema({
         type: Date,
         default: Date.now
     },
+
+    deletedAt: {
+        type: Date,
+        default: null,
+      }
 });
 module.exports = mongoose.model('notes', NotesSchema);

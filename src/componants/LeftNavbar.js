@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import ConfirmWindow from './ConfirmWindow';
 
 const LeftNavbar = () => {
   let location = useLocation();
+  const [showModal, setShowModal] = useState(false); 
 
-  const handleLogout = ()=>{
-    localStorage.removeItem('token');
+  const handleLogout = () => {
+    setShowModal(true);
+  }
+
+  const handleCloseModal = () => {
+    setShowModal(false);
   }
   
   return (
@@ -22,12 +28,12 @@ const LeftNavbar = () => {
           </Link>
         </li>
         <li className={`trashBin ${location.pathname==="/home/trashbin"? "activeFormEle": ""}`}>
-          <Link to={location.pathname}>
+          <Link to="/home/trashbin">
             <i className="fa-regular fa-trash-can"></i> <br /> Trash
           </Link>
         </li>
         <li className={`tags ${location.pathname==="/home/tags"? "activeFormEle": ""}`}>
-          <Link to={location.pathname}>
+          <Link to="/home/tags">
             <i className="fa-solid fa-tags"></i> <br /> Tags
           </Link>
         </li>
@@ -36,11 +42,12 @@ const LeftNavbar = () => {
             <i className="fa-solid fa-sun"></i> <br /> Theme
           </Link>
         </li>
-        <li className={`logout ${location.pathname==="/"? "activeFormEle": ""}`} onClick={handleLogout}>
-          <Link to="/">
+        <li className={`logout ${location.pathname==="/home/logout"? "activeFormEle": ""}`} onClick={handleLogout}>
+          <Link to={location.pathname}>
             <i className="fa-solid fa-arrow-right-from-bracket"></i> <br /> Logout
           </Link>
         </li>
+        <ConfirmWindow showModal={showModal} handleCloseModal={handleCloseModal} />
       </ul>
     </>
   )

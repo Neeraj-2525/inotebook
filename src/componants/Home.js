@@ -1,7 +1,5 @@
 import AddNote from './AddNote';
-import LeftNavbar from './LeftNavbar';
 import { useLocation } from "react-router-dom";
-import UserProfileIcon from './UserProfileIcon';
 
 
 const Home = (props) => {
