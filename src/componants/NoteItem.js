@@ -19,7 +19,7 @@ const NoteItem = (props) => {
     }
 
     return (
-        <div className="col-md-3 col-lg-3 allNoteCardContainer">
+        <div className="col-md-4 col-xxl-3 allNoteCardContainer">
             <div className="card my-3 allNoteCard">
                 <div className="card-body">
                     <div className="d-flex align-items-center">
