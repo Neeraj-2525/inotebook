@@ -4,7 +4,7 @@ import { useState } from "react";
 const NoteState = (props) => {
   // const host = "";
   // const host = "http://localhost:5000";
-  const host = "inotesapi.up.railway.app";
+  const host = "https://inotesapi.up.railway.app";
   const notesInitial = []
   const tagsInitial = []
   const [notes, setNotes] = useState(notesInitial)
