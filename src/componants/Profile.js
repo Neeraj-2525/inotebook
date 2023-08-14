@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react'
-import noteContext from "../context/notes/noteContext"
+import noteContext from "../context/noteContext"
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import Loader from './Loader';

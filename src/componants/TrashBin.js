@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react'
-import noteContext from "../context/notes/noteContext"
+import noteContext from "../context/noteContext"
 import { useNavigate } from 'react-router-dom';
 import NoteItem from './NoteItem';
 import Loader from './Loader';

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
-import noteContext from "../context/notes/noteContext"
+import noteContext from "../context/noteContext"
 
 const UserProfileIcon = (props) => {
 
