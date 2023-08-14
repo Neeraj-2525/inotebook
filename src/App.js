@@ -8,6 +8,7 @@ import {
 import Navbar from './componants/Navbar';
 import Home from './componants/Home';
 import About from './componants/About';
+import NoteState from '../src/context/noteState';
 import Alert from './componants/Alert';
 import Login from './componants/Login';
 import SignUp from './componants/SignUp';
