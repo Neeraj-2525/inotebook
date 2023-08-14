@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 const SignUp = (props) => {
   const [credentials, setCredentials] = useState({ name: "", email: "", password: "", occupation: "", gender: "" })
   let navigate = useNavigate();
-  const host = "http://localhost:5000"
+  const host = "https://inotesapi.up.railway.app"
 
   const handleSubmit = async (e) => {
     e.preventDefault();

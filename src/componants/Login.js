@@ -5,7 +5,7 @@ const Login = (props) => {
 
   const [credentials, setCredentials] = useState({ email: "", password: "" })
   let navigate = useNavigate();
-  const host = "http://localhost:5000"
+  const host = "https://inotesapi.up.railway.app"
 
   const handleSubmit = async (e) => {
     e.preventDefault();
